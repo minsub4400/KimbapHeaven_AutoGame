@@ -51,11 +51,12 @@ int main()
 		
 
 		// Render
-		manager.setCloseStore(); //  식당 종료 호출
-		manager.getInfo();			// 식당 정보 호출
-		manager.setDays();		// 날짜 업데이트
-		
-		table.TablePrint(); // 테이블 정보 출력
+		manager.setCloseStore();				//  식당 종료 호출
+		manager.getInfo();						// 식당 정보 호출
+		manager.setDays();					// 날짜 업데이트
+		manager.ConsumerComming();		// 손님이 온다
+		table.TablePrint();						// 테이블 정보 출력
+		table.ConsumerDistribution();		// 손님 분배
 		Sleep(s_deltaTime);
 		system("cls");
 	} // while 문 끝.

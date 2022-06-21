@@ -17,7 +17,7 @@ public:
 	int		_visitor;				// 방문객
 	int		_delayConsumer;   // 대기자
 	KimbapHeavenManager() {}
-	KimbapHeavenManager(int &visitorCount)
+	KimbapHeavenManager(int visitorCount)
 		: _openStore(false), _days(1), _getMoney(0), _visitor(visitorCount), _time(0), _delayConsumer(visitorCount)
 	{
 		if (_openStore == false)
@@ -35,7 +35,6 @@ public:
 	void setDays();					// 날짜 변경 함수
 	void setCloseStore();			// 식당문 닫는 함수
 	void ConsumerComming();  // 손님이 방문하는 함수
-	//void ConsumerDistribution(KimbapHeavenTable tableUsed); // 대기 중인 손님 분배 함수
 };
 
 class KimbapHeavenTable : public KimbapHeavenManager
@@ -51,9 +50,9 @@ public:
 	KimbapHeavenTable(int tableCount)
 		: _state(0), _count(tableCount)
 	{
-		_consumer = new int[tableCount];
-		_menu = new std::string;
-		_tableUsed = new bool[tableCount];
+		_consumer = new int[tableCount] { 0 };
+		_menu = new std::string[MENUARR];
+		_tableUsed = new bool[tableCount] { false };
 	}
 
 	~KimbapHeavenTable()
@@ -65,6 +64,6 @@ public:
 
 	// 멤버 함수
 	void TablePrint();				// 테이블 출력 함수
-	
+	void ConsumerDistribution(); // 대기 중인 손님 분배 함수
 };
 
