@@ -5,6 +5,8 @@
 
 int main()
 {
+	srand(time(NULL));
+
 	clock_t beforTime;		// 이전 시점 저장 변수
 	clock_t currentTime;	// 현재 시점 저장 변수
 	float deltaTime;		// 프레임 간격 저장 변수
@@ -12,25 +14,13 @@ int main()
 	int fpsCount = 0;		//
 	beforTime = clock();
 	// 클래스 인스턴스 생성
-	KimbapHeavenManager manager; // 식당
+	int randVisitor = rand() % 10 + 1;
+	KimbapHeavenManager manager(randVisitor); // 식당 만들기
+	KimbapHeavenTable table(3);						// 테이블 만들기(테이블 수)
 
     // 게임 루프
 	while (true)
 	{	
-
-		// Input
-		std::cout << "##### 김밥 천국 매니저!! #####" << std::endl;
-		
-
-		// Update
-		
-
-		// Render
-		manager.setCloseStore(); //  식당 종료 호출
-		manager.getInfo();			// 식당 정보 호출
-		manager.setDays();		// 날짜 업데이트
-		
-
 		// 게임 프레임 조작----------------------------------------------------------
 		currentTime = clock();
 		deltaTime = (float)(currentTime - beforTime) / CLOCKS_PER_SEC;
@@ -51,8 +41,23 @@ int main()
 			// 아무것도 안함
 		}
 		// -------------------------------------------------------------------------------
+		
 
+		// Input
+		std::cout << "##### 김밥 천국 매니저!! #####" << std::endl;
+		
+
+		// Update
+		
+
+		// Render
+		manager.setCloseStore(); //  식당 종료 호출
+		manager.getInfo();			// 식당 정보 호출
+		manager.setDays();		// 날짜 업데이트
+		
+		table.TablePrint(); // 테이블 정보 출력
 		Sleep(s_deltaTime);
 		system("cls");
-	}
+	} // while 문 끝.
+
 }
