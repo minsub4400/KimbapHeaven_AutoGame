@@ -17,7 +17,9 @@ int main()
     // 게임 루프
 	while (true)
 	{	
+
 		// Input
+		std::cout << "##### 김밥 천국 매니저!! #####" << std::endl;
 		
 
 		// Update
