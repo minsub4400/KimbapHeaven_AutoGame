@@ -127,11 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alba.cpp" />
     <ClCompile Include="KimbapHeavenManager.cpp" />
     <ClCompile Include="KimbapHeaven_main.cpp" />
+    <ClCompile Include="Kitchen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alba.h" />
     <ClInclude Include="KimbapHeavenManager.h" />
+    <ClInclude Include="Kitchen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
