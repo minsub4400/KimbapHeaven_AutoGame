@@ -31,13 +31,13 @@ void KimbapHeavenManager::setCloseStore()
 	}
 }
 
-int multiples = 10;
+int multiples = 30;
 void KimbapHeavenManager::ConsumerComming()
 {
-	if (_time >= multiples) // 30초가 지날때 마다 손님이 랜덤으로 방문함
+	if (_time >= multiples) // 30초가 지날때 마다
 	{ 
-		_delayConsumer += rand() % 10 + 1; 
-		multiples += 10;
+		_delayConsumer += rand() % 5 + 1;  // 1 ~ 5명 사이의 손님
+		multiples += 30;
 		_visitor += _delayConsumer; 
 	}
 	ConsumerDistribution(); // 손님 분배
